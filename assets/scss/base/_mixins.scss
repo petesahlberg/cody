@@ -1,0 +1,217 @@
+// vars
+$sides: $font-number + $font-number;
+$sides2: $sides / 2;
+$large: 1200px;
+$xlarge: 1400px;
+$medium: $large / 2;
+$medium-max: $medium - 1px;
+$large-max: $large + $sides2 - 1px;
+$small: 400px;
+$small-max: $small - 1px;
+$xl: '(min-width:#{$xlarge})';
+$lg: '(min-width:#{$large})';
+$lg-down: '(max-width:#{$large-max})';
+$md: '(min-width:#{$medium})';
+$md-down: '(max-width:#{$large-max})';
+$sm: '(min-width:#{$small})';
+$sm-down: '(max-width:#{$small-max})';
+
+// Mixins
+@mixin container {
+  padding-left: $base;
+  padding-right: $base;
+  //max-width:$large;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+@mixin container_nopad {
+  //  max-width:$large;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+// font size
+@mixin font_size {
+   @media #{$lg}{
+    font-size: $font-size;
+  }
+  @media #{$lg-down} and #{$sm} {
+    font-size: ($font-number / 12.5)+vw;
+  }
+  @media #{$sm-down} {
+    font-size: ($font-number / 3)+px;
+  }
+}
+// font size
+@mixin font_size_alt {
+   @media #{$lg}{
+    font-size: ($font-number + 3.5)+px;
+  }
+  @media #{$lg-down} and #{$sm} {
+    font-size: ($font-number / 12)+vw;
+  }
+  @media #{$sm-down} {
+    font-size: ($font-number / 3)+px;
+  }
+}
+// font size
+@mixin font_size_small {
+   @media #{$lg}{
+    font-size: ($font-number - 6)+px;
+  }
+  @media #{$lg-down} and #{$sm} {
+    font-size: ($font-number / 14)+vw;
+  }
+  @media #{$sm-down} {
+    font-size: ($font-number / 3)+px;
+  }
+}
+// headings
+@mixin headings {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @content;
+  }
+}
+// site-description
+@mixin strip {
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    appearance: none;
+    border: none;
+    background: none;
+    box-shadow: none;
+    outline: none;
+  }
+}
+// fixed
+@mixin fix {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+// replace shitty text decoration with custom underline
+@mixin underline {
+  position: relative;
+  display: inline-block;
+
+  &:after {
+    content: '';
+    height: .1em;
+    display: block !important;
+    top: 84%;
+    position: absolute;
+    background: $text-color;
+    left: .05em;
+    right: .05em;
+  }
+  @media #{$md} {
+    &:after {
+      height: .08em;
+    }
+  }
+  &:hover {
+    &:after {
+      content: none;
+    }
+  }
+}
+/// center bg
+@mixin center_bg {
+  background-position: center center !important;
+  background-size: 800px !important;
+  background-repeat: no-repeat !important;
+}
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+// extends
+#content-rows {
+//  font-size:40px;
+  //font-size:20px;
+  .two-image {
+    @include clearfix;
+  }
+
+  .two-image .image-col:not(.has-image) {
+    @media (max-width:$small-max) {
+      display:none;
+    }
+  }
+
+  .two-image .image-col.has-image {
+    @media (max-width:$small-max) {
+      margin:0;
+    }
+  }
+
+  > div {
+    margin-bottom: 0.5em;
+
+    img,
+    p {
+      margin: 0;
+
+      &:contains('&nbsp;') {
+        margin: -.15em 0;
+      }
+    }
+  }
+}
+
+.col-sm-12 {
+  &.image-col {
+    line-height: 0;
+  }
+}
+
+.col-sm-6 {
+  line-height:0;
+  @include clearfix;
+  &:not(:nth-child(2)) {
+    margin-bottom: .5em;
+  }
+  @media #{$sm} {
+    line-height: 1;
+    margin-bottom: 0;
+    width: 50%;
+    float: left;
+
+    &.has-image {
+      //font-size:0;
+      line-height: 0;
+      margin:0;
+    }
+
+    &:first-child {
+      padding-right: 0.25em;
+    }
+
+    &:last-child {
+      padding-left: 0.25em;
+    }
+
+    &:empty ~ & {
+      padding-left: 0;
+    }
+  }
+}
+///retina
+@mixin iOS {
+   @media only screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi){
+    @content;
+  }
+}

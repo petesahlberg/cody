@@ -1,0 +1,92 @@
+#lightbox {
+  pointer-events:all;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background:$darkgreen;
+  //left:100%;
+  opacity:0;
+  transition:opacity 300ms;
+  padding:$base;
+  will-change:opacity, left;
+  display:flex;
+  pointer-events:none;
+  * {
+    //will-change:auto;
+  }
+  a {
+    color:$lightbrown;
+  }
+}
+.flickity-viewport {
+ height:100% !important;
+}
+
+.carousel {
+  * {
+  //  will-change:auto;
+    //transform:Translate3d(0,0,0);
+  }
+  height:100%;
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  top:0;
+  width:100%;
+  text-align:center;
+  .flickity-slider {
+    height:100% !important;
+    will-change:transform;
+  }
+  .image-wrapper {
+    padding-lefT:$base * 2;
+    padding-right:$base * 2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    width:100%;
+    img {
+      //@media #{$sm} {
+      //  padding-left:$base * 2;
+        //padding-right:$base * 2;
+        height:auto;
+        max-height:80vh;
+        width:auto;
+      }
+    }
+}
+
+.flickity-prev-next-button,
+.flickity-page-dots {
+  display:none;
+}
+
+#page .appear {
+  left:0 !important;
+  opacity:1;
+  pointer-events:all !important;
+}
+
+.close {
+  z-index:9999;
+  position:absolute;
+  right:$base;
+  top:$base;
+}
+
+body:not(.os-ios):not(.device-mobile):not(.device-tablet) {
+  .flickity-viewport {
+  @media (min-width:768px) {
+    pointer-events:none;
+    }
+    pointer-events:all;
+  }
+}

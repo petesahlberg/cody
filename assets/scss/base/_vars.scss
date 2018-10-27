@@ -1,0 +1,18 @@
+// colors
+$gray: #231f20;
+$green: #5a6d69;
+$darkgreen: #33473c;
+$lightbrown: #afa593;
+$text-color: $gray;
+// spacing
+$base: 0.5em;
+//type
+$letter-spacing: 0;
+$bolton: 'f37_boltonregular', helvetica;
+$base-line-height: 1.2;
+$font-number: 61.5;
+$font-size: $font-number+px;
+// transforms
+$opac: 0.5;
+$slow: 0.15s;
+$fast: $slow * 2.5;

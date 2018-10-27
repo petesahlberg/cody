@@ -1,0 +1,51 @@
+// Bolton
+@import url( 'assets/fonts/stylesheet.css');
+
+html {
+  margin: 0;
+}
+
+body {
+  letter-spacing: $letter-spacing;
+  line-height: $base-line-height;
+  font-family: $bolton;
+  color: $text-color;
+  @include font_size;
+
+  * {
+    box-sizing: border-box;
+  }
+  @include headings {
+     @include font_size;
+    font-weight: 900;
+    margin: 0;
+  }
+}
+// paragraphs
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+// lists
+ol,
+ul {
+  padding: 0;
+
+  li {
+    list-style-type: none;
+  }
+}
+// links, buttons
+a,
+button {
+  text-decoration: none;
+
+  &,
+  &:visited {
+    color: $text-color;
+  }
+
+  &:hover {
+    opacity: $opac;
+  }
+}

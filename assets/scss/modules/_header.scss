@@ -1,0 +1,149 @@
+.site-header {
+  .custom-logo-link {
+    display:none;
+  }
+  font-family: $bolton; //  padding-top:$base;
+  padding-bottom: $base;
+  margin-bottom: 0.2em;
+  // SITE BRANDING
+  .site-description {
+    display: none;
+  }
+
+  .site-branding {
+    p {
+      margin: 0;
+    }
+    display: flex;
+    align-items: top;
+    position: relative;
+    z-index: 99;
+
+    .site-title {
+      position: relative;
+      //  z-index:999999;
+      flex: 1;
+
+      a {
+        //  background:white;
+        &:hover {
+          //opacity:$opac;
+          //  color:#ccc;
+        }
+      }
+    }
+    //MENU TOGGLE
+    .menu-toggle {
+      font-family: $bolton;
+
+      &.toggled {
+        //  display:none;
+      }
+      line-height: 0;
+      @include font_size;
+      margin-left: auto;
+      @include strip;
+      color: $text-color;
+      cursor: pointer;
+      padding: 0;
+      margin-top:-.05em;
+      //position:relative;
+      //bottom:2px;
+      z-index: 9999;
+    }
+  }
+  // MAIN NAVIGATION
+  .main-navigation {
+    @include center_bg;
+    display: none;
+    @include fix;
+    padding-left: $base;
+    padding-right: $base;
+    z-index: 999;
+  //  background: white;
+    //background:orange;
+    @at-root {
+      .logged-in {
+        .main-navigation {
+          top: 32px;
+        }
+      }
+    }
+
+    #primary-menu {
+      strong {
+        font-weight: normal;
+
+        a {
+          position: relative;
+          z-index: 9999;
+          opacity: 1 !important;
+
+          &:hover {
+            opacity: $opac !important;
+          }
+        }
+      }
+
+      a {
+        @include underline;
+
+        &[href="/"] {
+          color: $text-color;
+
+          &:after {
+            content: none;
+          }
+        }
+
+        &:hover {
+          //background:rgba(white, .75);
+          //padding:10px;
+          //margin:-10px;
+        }
+      }
+
+      p > p {
+        display: inline;
+      }
+      padding-top: .45em;
+      @include container_nopad;
+    }
+  }
+}
+//* SECONDARY NAVIGATION //*
+#secondary-navigation {
+  @include container_nopad;
+  position: absolute;
+  width: 100%;
+  bottom: $base;
+  left: $base;
+  right: $base;
+
+  li {
+    float: left;
+    margin-right: 0.75em;
+  }
+}
+
+.home .site-title {
+  display:none;
+}
+
+#menu-secondary-right-menu {
+  float:right;
+  margin-right:$base * 2;
+  li {
+    &:last-child {
+      margin-right:0;
+    }
+  }
+}
+//SKIPLINK
+.skip-link {
+  display: none;
+}
+
+.customize-partial-edit-shortcuts-shown .site-title {
+  display:none;
+}

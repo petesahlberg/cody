@@ -1,0 +1,132 @@
+.single-project {
+  .entry-header {
+    .entry-title {
+      display: none;
+    }
+
+    img {
+      margin-bottom: 0.5em;
+    }
+  }
+  #page {
+    padding-bottom:0;
+  }
+  .content-container {
+    position:relative;
+  }
+  .entry-content {
+    a {
+      @include underline;
+    }
+    .content-more > p:first-child {
+      display:none;
+    }
+    //transition: max-height 1s;
+    //max-height:1em;
+    overflow:hidden;
+    margin-bottom:2.5em;
+    position:relative;
+    + .read-more {
+        position:absolute;
+        top:100%;
+        margin-top:0;
+        left:0;
+        img {
+          display:inline-block;
+          transform:rotate(45deg);
+          position:relative;
+          top:.2em;
+          max-height:1em;
+        }
+    }
+  }
+}
+
+.arrow-rotate-up {
+  img {
+    transform:rotate(-45deg) !important;
+  }
+}
+
+.content-more {
+  display:none;
+}
+
+.post-navigation {
+  position: fixed;
+  bottom: 0;
+  right: $base;
+  clear: both;
+
+  .screen-reader-text {
+    display: none;
+  }
+  margin-bottom: $base;
+  width: 100%;
+  clear: both;
+  margin-top: 1em;
+
+  .nav-next {
+    display: none;
+    float: left;
+    text-align: left;
+    position: relative;
+    left: 5%;
+  }
+
+  .nav-previous {
+    img {
+      height: .72em;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: .2em;
+      position: relative;
+      top: 0.02em;
+    }
+     @media (min-width:768px) {
+    &:hover {
+      img {
+      //  opacity:.8;
+      }
+      span {
+        visibility: visible;
+        }
+      }
+    }
+
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      visibility: hidden;
+    }
+    float: right;
+    //text-align:right;
+    //padding-right:20%;
+    position: relative;
+    width: auto;
+
+    @media (max-width:767px) {
+      span {
+        visibility:visible;
+      }
+    }
+
+    a {
+      padding: 15px 0 15px 15px;
+      //  @include arrow;
+    }
+  }
+  //min-width:50%;
+  width: auto;
+  float: right;
+}
+
+.index-link {
+  margin: $base * 2 0 $base;
+  display: inline-block;
+  clear: both;
+}
+
+.jetpack-video-wrapper {
+  margin-bottom:0 !important;
+}
